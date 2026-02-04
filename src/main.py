@@ -6,7 +6,7 @@ import pygame
 def currentTileColor(c):
     if (c % 2 == 0):
         return "white"
-    return "black"
+    return "brown"
 
 def drawChessBoard():
     col = 0
