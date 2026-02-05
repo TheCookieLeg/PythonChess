@@ -1,7 +1,8 @@
 ﻿from operator import truediv
-
 import pygame
-
+from src.ChessPieces.chess_piece import ChessPiece
+from src.init_pieces import initBlackPieces
+from src.init_pieces import initWhitePieces
 
 def currentTileColor(c):
     if (c % 2 == 0):
@@ -21,6 +22,13 @@ def drawChessBoard():
         col += TILE_SIZE
         counter += 1
 
+blackPieces = initBlackPieces()
+whitePieces = initWhitePieces()
+
+for piece in blackPieces:
+    piece.move()
+for piece in whitePieces:
+    piece.move()
 
 TILE_SIZE = 100
 
@@ -28,6 +36,8 @@ pygame.init()
 screen = pygame.display.set_mode((TILE_SIZE * 8, TILE_SIZE * 8))
 clock = pygame.time.Clock()
 running = True
+
+
 
 while running:
     for event in pygame.event.get():
