@@ -1,5 +1,5 @@
 ﻿import pygame
-class ChessPiece:
+class ChessPiece(pygame.sprite.Sprite):
     name = None
     side = None
     imagePath = None
