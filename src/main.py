@@ -1,8 +1,8 @@
 ﻿from operator import truediv
 import pygame
 from src.ChessPieces.chess_piece import ChessPiece
-from src.init_pieces import initBlackPieces
-from src.init_pieces import initWhitePieces
+from src.init_pieces import initPieces
+from src.init_pieces import addPiecesToGroup
 
 def currentTileColor(c):
     if (c % 2 == 0):
@@ -22,8 +22,13 @@ def drawChessBoard():
         col += TILE_SIZE
         counter += 1
 
-blackPieces = initBlackPieces()
-whitePieces = initWhitePieces()
+blackPieces = initPieces("black")
+whitePieces = initPieces("white")
+
+blackPiecesGroup = addPiecesToGroup(blackPieces)
+whitePiecesGroup = addPiecesToGroup(whitePieces)
+
+
 
 for piece in blackPieces:
     piece.move()
@@ -45,6 +50,8 @@ while running:
             running = False
 
     drawChessBoard()
+
+    blackPiecesGroup.draw(screen)
 
     pygame.display.flip()
     clock.tick(60)

@@ -3,6 +3,7 @@ from src.ChessPieces.chess_piece import ChessPiece
 class Bishop(ChessPiece):
 
     def __init__(self, side):
+        ChessPiece.__init__(self)
         self.name = "Bishop"
         self.side = side
 

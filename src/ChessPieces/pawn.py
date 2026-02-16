@@ -5,6 +5,7 @@ import pygame
 class Pawn(ChessPiece):
 
     def __init__(self, side):
+        ChessPiece.__init__(self)
         self.name = "Pawn"
         self.side = side
 
@@ -13,6 +14,9 @@ class Pawn(ChessPiece):
         else:
             self.imagePath = "Sprites/WhitePawn.png"
 
+        self.image = pygame.Surface(self.currentPosition)
+        self.image.fill("blue")
+        self.rect = (100, 100)
 
 
     def move(self):
